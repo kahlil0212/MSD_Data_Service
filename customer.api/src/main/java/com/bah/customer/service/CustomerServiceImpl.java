@@ -1,8 +1,10 @@
 package com.bah.customer.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bah.customer.domain.Customer;
+import com.bah.customer.persistence.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
