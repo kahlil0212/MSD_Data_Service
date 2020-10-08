@@ -17,22 +17,23 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bah.customer.domain.Customer;
 import com.bah.customer.persistence.CustomerRepository;
+import com.bah.customer.service.CustomerService;
 
 
 @RestController
 @RequestMapping("/customers")
 public class CustomerAPI {
 	@Autowired
-	CustomerRepository repo;
+	CustomerService custServ;
 	
 	@GetMapping
 	public Iterable<Customer> getAll(){
-		return repo.findAll();
+		return custServ.getAllCustomers();
 	}
 	
 	@GetMapping("/{customerId}")
-	public Optional<Customer> getCustomerById(@PathVariable("customerId") long id){
-		return repo.findById(id);
+	public Customer getCustomerById(@PathVariable("customerId") long id){
+		return custServ.getCustomerByID(id);
 	}
 	
 	@PostMapping
@@ -42,7 +43,7 @@ public class CustomerAPI {
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
-		newCustomer=repo.save(newCustomer);
+		newCustomer=custServ.addandUpdateCustomer(newCustomer);
 		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
 		ResponseEntity<?> response=ResponseEntity.created(location).build();
 		return response;
@@ -55,7 +56,7 @@ public class CustomerAPI {
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
-		newCustomer=repo.save(newCustomer);
+		newCustomer=custServ.addandUpdateCustomer(newCustomer);
 		return ResponseEntity.ok().build();
 	}
 }

@@ -8,7 +8,7 @@ public interface CustomerService {
 	
 	Customer getCustomerByID(long custId);
 
-	void addCustomer(Customer customer);
+	Customer addandUpdateCustomer(Customer customer);
 	
 	void removeCustomerById(long custId);
 	

@@ -14,25 +14,26 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public Iterable<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return custRepo.findAll();
 	}
 
 	@Override
 	public Customer getCustomerByID(long custId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return custRepo.findById(custId).get();
 	}
 
 	@Override
-	public void addCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+	public Customer addandUpdateCustomer(Customer customer) {
+		
+		return custRepo.save(customer);
 		
 	}
 
 	@Override
 	public void removeCustomerById(long custId) {
-		// TODO Auto-generated method stub
+		custRepo.deleteById(custId);
 		
 	}
 
