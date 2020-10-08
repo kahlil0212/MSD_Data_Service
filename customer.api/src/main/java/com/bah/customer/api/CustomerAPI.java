@@ -1,7 +1,6 @@
 package com.bah.customer.api;
 
 import java.net.URI;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +15,15 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bah.customer.domain.Customer;
-import com.bah.customer.persistence.CustomerRepository;
 import com.bah.customer.service.CustomerService;
 
 
 @RestController
 @RequestMapping("/customers")
 public class CustomerAPI {
+	
 	@Autowired
-	CustomerService custServ;
+	private CustomerService custServ;
 	
 	@GetMapping
 	public Iterable<Customer> getAll(){

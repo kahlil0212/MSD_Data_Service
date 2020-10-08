@@ -10,7 +10,7 @@ import com.bah.customer.persistence.CustomerRepository;
 public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
-	CustomerRepository custRepo;
+	private CustomerRepository custRepo;
 
 	@Override
 	public Iterable<Customer> getAllCustomers() {
