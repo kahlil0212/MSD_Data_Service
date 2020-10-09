@@ -37,24 +37,24 @@ public class RegistrationAPI {
 	
 	@PostMapping
 	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri){
-		if (newRegistration.getId()!=0
-			|| newRegistration.getCode()==null
-			|| newRegistration.getDescription()==null
-			|| newRegistration.getTitle() == null) {//Reject - we'll assign the registration id
+		if (newRegistration.getId()!=0 && newRegistration.getCustomer().getId() == 0 
+				&& newRegistration.getEvent().getId() == 0
+			|| newRegistration.getNotes()==null
+			|| newRegistration.getRegistrationDate()==null) {//Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration=registrationService.addandUpdateRegistration(newRegistration);
-		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newEvent.getId()).toUri();
+		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newRegistration.getId()).toUri();
 		ResponseEntity<?> response=ResponseEntity.created(location).build();
 		return response;
 	}
 	
 	@PutMapping("/{registrationId}")
 	public ResponseEntity<?> putRegistration(@RequestBody Registration newRegistration, @PathVariable("registrationId")long registrationId){
-		if (newRegistration.getId()!= registrationId
-			|| newRegistration.getCode()==null
-			|| newRegistration.getDescription()==null
-			|| newRegistration.getTitle() == null) {//Reject - we'll assign the registration id
+		if (newRegistration.getId()!= registrationId && newRegistration.getCustomer().getId()!=0
+				&& newRegistration.getEvent().getId()!= 0
+			|| newRegistration.getRegistrationDate()==null
+			|| newRegistration.getNotes()==null) {//Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration=registrationService.addandUpdateRegistration(newRegistration);
