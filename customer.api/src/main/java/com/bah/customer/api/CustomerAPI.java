@@ -36,6 +36,10 @@ public class CustomerAPI {
 		return customerService.getCustomerByID(id);
 	}
 	
+	public Customer getCustomerByName(@PathVariable("customerName") String customerName) {
+		return customerService.getCustomerByName(customerName);
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> addCustomer(@RequestBody Customer newCustomer, UriComponentsBuilder uri){
 		if (newCustomer.getId()!=0

@@ -7,6 +7,8 @@ public interface CustomerService {
 	Iterable<Customer> getAllCustomers();
 	
 	Customer getCustomerByID(long custId);
+	
+	Customer getCustomerByName(String custName);
 
 	Customer addandUpdateCustomer(Customer customer);
 	

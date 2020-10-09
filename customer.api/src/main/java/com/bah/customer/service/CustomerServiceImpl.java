@@ -23,6 +23,17 @@ public class CustomerServiceImpl implements CustomerService{
 
 		return customerRepository.findById(custId).get();
 	}
+	
+	@Override
+	public Customer getCustomerByName(String custName) {
+		Iterable<Customer> customerList = this.getAllCustomers();
+		
+		for(Customer customer: customerList) {
+			if(customer.getName().equals(custName))
+				return customer;
+		}
+		return null;
+	}
 
 	@Override
 	public Customer addandUpdateCustomer(Customer customer) {
@@ -36,5 +47,7 @@ public class CustomerServiceImpl implements CustomerService{
 		customerRepository.deleteById(custId);
 		
 	}
+
+	
 
 }
