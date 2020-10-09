@@ -6,17 +6,18 @@
 	},
 	"item": [
 		{
-			"name": "All Customers",
+			"name": "Customers All",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/customers",
+					"raw": "localhost:8080/api/customers",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"customers"
 					]
 				},
@@ -30,17 +31,41 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/customers/2",
+					"raw": "localhost:8080/api/customers/id/3",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"customers",
-						"2"
+						"id",
+						"3"
 					]
 				},
 				"description": "localhost:8080/customers/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customers/byname/Clark",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"byname",
+						"Clark"
+					]
+				},
+				"description": "localhost:8080/api/customers/byname/Clark"
 			},
 			"response": []
 		},
@@ -61,12 +86,13 @@
 					"raw": "{\n    \"name\": \"Peter\",\n    \"email\": \"peterparker@gmail.com\",\n    \"password\": \"spiderman04\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/customers",
+					"raw": "localhost:8080/api/customers",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"customers"
 					]
 				},
@@ -91,14 +117,13 @@
 					"raw": "    {\n        \"id\": 2,\n        \"name\": \"Diana\",\n        \"email\": \"dianaprince@gmail.com\",\n        \"password\": \"wonderwoman05\"\n    }"
 				},
 				"url": {
-					"raw": "localhost:8080/customers/2",
+					"raw": "localhost:8080/customers",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"customers",
-						"2"
+						"customers"
 					]
 				},
 				"description": "localhost:8080/customers/2"
@@ -111,12 +136,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/customers/3",
+					"raw": "localhost:8080/api/customers/3",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"customers",
 						"3"
 					]
@@ -126,17 +152,18 @@
 			"response": []
 		},
 		{
-			"name": "All Events",
+			"name": "Events All",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/events",
+					"raw": "localhost:8080/api/events",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"events"
 					]
 				},
@@ -150,17 +177,41 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/events/1",
+					"raw": "localhost:8080/api/events/id/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"events",
+						"id",
 						"1"
 					]
 				},
 				"description": "localhost:8080/events/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Event By Title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/events/title/Rock Concert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						"title",
+						"Rock Concert"
+					]
+				},
+				"description": "localhost:8080/api/events/title/Rock%20Concert"
 			},
 			"response": []
 		},
@@ -181,12 +232,13 @@
 					"raw": "{\n    \"code\": \"CNF002\",\n    \"title\": \"All-C++ Conference\",\n    \"description\": \"Lectures and exhibits covering all C++ topics\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/events",
+					"raw": "localhost:8080/api/events",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"events"
 					]
 				},
@@ -211,14 +263,14 @@
 					"raw": "    {\n        \"id\": 4,\n        \"code\": \"CNF002\",\n        \"title\": \"All-Ruby Conference\",\n        \"description\": \"Lectures and exhibits covering all Ruby topics\"\n    }"
 				},
 				"url": {
-					"raw": "localhost:8080/events/4",
+					"raw": "localhost:8080/api/events",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"events",
-						"4"
+						"api",
+						"events"
 					]
 				},
 				"description": "localhost:8080/events/4"
@@ -231,12 +283,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/events/4",
+					"raw": "localhost:8080/api/events/4",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"events",
 						"4"
 					]
@@ -246,17 +299,18 @@
 			"response": []
 		},
 		{
-			"name": "All Registrations",
+			"name": "Registrations All",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/registrations",
+					"raw": "localhost:8080/api/registrations",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"registrations"
 					]
 				},
@@ -270,12 +324,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/registrations/2",
+					"raw": "localhost:8080/api/registrations/2",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"registrations",
 						"2"
 					]
@@ -301,12 +356,13 @@
 					"raw": "{\n    \"event_id\": 2,\n    \"customer_id\": 1,\n    \"registrationDate\": \"2020-01-15\",\n    \"notes\": \"is parking available\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/registrations",
+					"raw": "localhost:8080/api/registrations",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"registrations"
 					]
 				},
@@ -331,12 +387,13 @@
 					"raw": "    {\n        \"id\": 4,\n        \"event_id\": 1,\n        \"customer_id\": 1,\n        \"registrationDate\": \"2020-01-21\",\n        \"notes\": \"is parking available\"\n    }"
 				},
 				"url": {
-					"raw": "localhost:8080/registrations",
+					"raw": "localhost:8080/api/registrations",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"registrations"
 					]
 				},
@@ -350,12 +407,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/registrations/4",
+					"raw": "localhost:8080/api/registrations/4",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"registrations",
 						"4"
 					]
