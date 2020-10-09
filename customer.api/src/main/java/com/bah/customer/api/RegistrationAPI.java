@@ -46,7 +46,7 @@ public class RegistrationAPI {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> addRegistration(@PathParam()String long customerId@RequestBody Registration newRegistration, UriComponentsBuilder uri){
+	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri){
 		if (newRegistration.getId()!=0 && newRegistration.getCustomer()!= null
 				&& newRegistration.getEvent()!= null
 			|| newRegistration.getNotes()==null
