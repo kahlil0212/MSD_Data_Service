@@ -34,4 +34,15 @@ public class EventServiceImpl implements EventService {
 
 	}
 
+	@Override
+	public Event getEventByTitle(String eventTitle) {
+		Iterable<Event> eventList = this.getAllEvents();
+		
+		for(Event event: eventList) {
+			if(event.getTitle().equals(eventTitle))
+				return event;
+		}
+		return null;
+	}
+
 }

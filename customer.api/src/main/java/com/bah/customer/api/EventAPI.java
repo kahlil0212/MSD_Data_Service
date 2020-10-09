@@ -19,7 +19,7 @@ import com.bah.customer.domain.Event;
 import com.bah.customer.service.EventService;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("api/events")
 public class EventAPI {
 
 	@Autowired
@@ -31,8 +31,25 @@ public class EventAPI {
 	}
 	
 	@GetMapping("/{eventId}")
-	public Event getEventById(@PathVariable("eventId") long id){
-		return eventService.getEventByID(id);
+	public ResponseEntity<?> getEventById(@PathVariable("eventId") long eventId){
+		Event event = eventService.getEventByID(eventId);
+		
+		if(event == null) {
+			return ResponseEntity.badRequest().build();
+		}else {
+			return ResponseEntity.ok(event);
+		}
+	}
+	
+	@GetMapping("/{eventTitle}")
+	public ResponseEntity<?> getEventByTitle(@PathVariable("eventTitle") String eventTitle){
+		Event event = eventService.getEventByTitle(eventTitle);
+		
+		if(event == null) {
+			return ResponseEntity.badRequest().build();
+		}else {
+			return ResponseEntity.ok(event);
+		}
 	}
 	
 	@PostMapping
