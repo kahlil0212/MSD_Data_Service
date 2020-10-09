@@ -31,11 +31,12 @@ public class CustomerAPI {
 		return customerService.getAllCustomers();
 	}
 	
-	@GetMapping("/{customerId}")
+	@GetMapping("/id/{customerId}")
 	public Customer getCustomerById(@PathVariable("customerId") long id){
 		return customerService.getCustomerByID(id);
 	}
 	
+	@GetMapping("/name/{customerName}")
 	public Customer getCustomerByName(@PathVariable("customerName") String customerName) {
 		return customerService.getCustomerByName(customerName);
 	}
