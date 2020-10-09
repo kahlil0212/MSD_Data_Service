@@ -76,9 +76,6 @@ public class Registration {
 		return "Registration [id=" + id + ", event_id=" + event_id + ", customer_id=" + customer_id
 				+ ", registrationDate=" + registrationDate + ", notes=" + notes + "]";
 	}
-
-
-	
 	
 	
 }

@@ -49,12 +49,9 @@ public class RegistrationAPI {
 	public ResponseEntity<?> addRegistration(@RequestBody Registration registration, UriComponentsBuilder uri) {
 		System.out.println("*** Registration "+ registration);
 		if (registration.getId() != 0 && registration.getCustomer_id() != 0 && registration.getEvent_id() != 0
-				|| registration.getNotes() == null || registration.getRegistrationDate() == null) {// Reject -
-																											// we'll
-																											// assign
-																											// the
-																											// registration
-																											// id
+				|| registration.getNotes() == null || registration.getRegistrationDate() == null) {
+		// Reject -we'll assign the registration id
+			
 			return ResponseEntity.badRequest().build();
 		}
 		Registration newRegistration = registrationService.addandUpdateRegistration(registration);
@@ -68,15 +65,16 @@ public class RegistrationAPI {
 
 	@PutMapping
 	public ResponseEntity<?> putRegistration(@RequestBody Registration registration) {
-		System.out.println("*** Registration "+ registration);
-		if (registration.getCustomer_id() != 0
-				&& registration.getEvent_id() != 0 || registration.getRegistrationDate() == null
-				|| registration.getNotes() == null) {// Reject - we'll assign the registration id
+		System.out.println("*** Put Registration "+ registration);
+		if (registration.getCustomer_id() == 0
+				&& registration.getEvent_id() == 0 || registration.getRegistrationDate() == null
+				|| registration.getNotes() == null
+				|| registration.getRegistrationDate() == null) {// Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
 		}
 		Registration newRegistration = registrationService.addandUpdateRegistration(registration);
 		
-		System.out.println("*** New Registration "+ newRegistration);
+		System.out.println("*** New Put Registration "+ newRegistration);
 		return ResponseEntity.ok().build();
 	}
 
