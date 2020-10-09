@@ -37,8 +37,15 @@ public class CustomerAPI {
 	}
 	
 	@GetMapping("/name/{customerName}")
-	public Customer getCustomerByName(@PathVariable("customerName") String customerName) {
-		return customerService.getCustomerByName(customerName);
+	public ResponseEntity<?> getCustomerByName(@PathVariable("customerName") String customerName) {
+		Customer customer = customerService.getCustomerByName(customerName);
+		
+		if(customer == null) {
+			return ResponseEntity.badRequest().build();
+		}else {
+			return ResponseEntity.ok(customer);
+		}
+		
 	}
 	
 	@PostMapping
