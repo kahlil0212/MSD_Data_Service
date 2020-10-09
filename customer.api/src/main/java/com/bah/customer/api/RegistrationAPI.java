@@ -23,7 +23,7 @@ import com.bah.customer.service.EventService;
 import com.bah.customer.service.RegistrationService;
 
 @RestController
-@RequestMapping("/registrations")
+@RequestMapping("/api/registrations")
 public class RegistrationAPI {
 
 	@Autowired
