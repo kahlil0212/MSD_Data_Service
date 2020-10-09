@@ -19,8 +19,28 @@ public class Registration {
 	@ManyToOne
 	private Event event;
 	
+	long event_id;
+	
+	public long getEvent_id() {
+		return event_id;
+	}
+
+	public void setEvent_id(long event_id) {
+		this.event_id = event_id;
+	}
+
+	public long getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(long customer_id) {
+		this.customer_id = customer_id;
+	}
+
 	@ManyToOne
 	private Customer customer;
+	
+	long customer_id;
 	
 	private Date registrationDate;
 	
@@ -68,11 +88,8 @@ public class Registration {
 
 	@Override
 	public String toString() {
-		return "Registration [id=" + id + ", event=" + event.getId() + ", customer=" + customer.getId() + ", registrationDate="
-				+ registrationDate + ", notes=" + notes + "]";
+		return "Registration [id=" + id + ", event_id=" + event_id + ", customer_id=" + customer_id
+				+ ", registrationDate=" + registrationDate + ", notes=" + notes + "]";
 	}
-
-	
-	
 
 }
