@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "a13d770f-3f5f-4c09-9905-53ad19bc8308",
+		"name": "MSD_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				},
+				"description": "localhost:8080/customers"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customers/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"2"
+					]
+				},
+				"description": "localhost:8080/customers/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Peter\",\n    \"email\": \"peterparker@gmail.com\",\n    \"password\": \"spiderman04\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				},
+				"description": "localhost:8080/customers"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 2,\n        \"name\": \"Diana\",\n        \"email\": \"dianaprince@gmail.com\",\n        \"password\": \"wonderwoman05\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/customers/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"2"
+					]
+				},
+				"description": "localhost:8080/customers/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customers/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"3"
+					]
+				},
+				"description": "localhost:8080/customers/3"
+			},
+			"response": []
+		},
+		{
+			"name": "All Events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/events",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events"
+					]
+				},
+				"description": "localhost:8080/events"
+			},
+			"response": []
+		},
+		{
+			"name": "Event by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/events/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"1"
+					]
+				},
+				"description": "localhost:8080/events/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Event POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"CNF002\",\n    \"title\": \"All-C++ Conference\",\n    \"description\": \"Lectures and exhibits covering all C++ topics\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/events",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events"
+					]
+				},
+				"description": "localhost:8080/events"
+			},
+			"response": []
+		},
+		{
+			"name": "Event PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 4,\n        \"code\": \"CNF002\",\n        \"title\": \"All-Ruby Conference\",\n        \"description\": \"Lectures and exhibits covering all Ruby topics\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/events/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"4"
+					]
+				},
+				"description": "localhost:8080/events/4"
+			},
+			"response": []
+		},
+		{
+			"name": "Event DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/events/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"4"
+					]
+				},
+				"description": "localhost:8080/events/4"
+			},
+			"response": []
+		},
+		{
+			"name": "All Registrations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/registrations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registrations"
+					]
+				},
+				"description": "localhost:8080/registrations"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/registrations/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registrations",
+						"2"
+					]
+				},
+				"description": "localhost:8080/registrations/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_id\": 2,\n    \"customer_id\": 1,\n    \"registrationDate\": \"2020-01-15\",\n    \"notes\": \"is parking available\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/registrations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registrations"
+					]
+				},
+				"description": "localhost:8080/registrations"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 4,\n        \"event_id\": 1,\n        \"customer_id\": 1,\n        \"registrationDate\": \"2020-01-21\",\n        \"notes\": \"is parking available\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/registrations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registrations"
+					]
+				},
+				"description": "localhost:8080/registrations"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/registrations/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registrations",
+						"4"
+					]
+				},
+				"description": "localhost:8080/registrations/4"
+			},
+			"response": []
+		}
+	]
+}
