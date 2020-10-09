@@ -49,10 +49,9 @@ public class EventAPI {
 		return response;
 	}
 	
-	@PutMapping("/{eventId}")
-	public ResponseEntity<?> putEvent(@RequestBody Event newEvent, @PathVariable("eventId")long eventId){
-		if (newEvent.getId()!= eventId
-			|| newEvent.getCode()==null
+	@PutMapping
+	public ResponseEntity<?> putEvent(@RequestBody Event newEvent){
+		if (newEvent.getCode()==null
 			|| newEvent.getDescription()==null
 			|| newEvent.getTitle() == null) {//Reject - we'll assign the event id
 			return ResponseEntity.badRequest().build();

@@ -49,10 +49,9 @@ public class CustomerAPI {
 		return response;
 	}
 	
-	@PutMapping("/{customerId}")
-	public ResponseEntity<?> putCustomer(@RequestBody Customer newCustomer, @PathVariable("customerId")long customerId){
-		if (newCustomer.getId()!= customerId
-			|| newCustomer.getName()==null
+	@PutMapping
+	public ResponseEntity<?> putCustomer(@RequestBody Customer newCustomer){
+		if (newCustomer.getName()==null
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
