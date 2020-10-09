@@ -1,4 +1,4 @@
-package com.bah.customer.api;
+package com.bah.customer;
 
 
 import org.springframework.boot.SpringApplication;

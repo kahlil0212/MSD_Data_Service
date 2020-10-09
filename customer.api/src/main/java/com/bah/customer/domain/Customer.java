@@ -1,16 +1,17 @@
 package com.bah.customer.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CUSTOMERS")
 public class Customer {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	private String name;
@@ -39,11 +40,11 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassWord() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassWord(String passWord) {
-		this.password = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
@@ -51,5 +52,4 @@ public class Customer {
 	}
 	
 	
-
 }

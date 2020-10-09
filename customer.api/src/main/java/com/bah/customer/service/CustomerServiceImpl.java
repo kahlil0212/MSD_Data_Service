@@ -10,30 +10,30 @@ import com.bah.customer.persistence.CustomerRepository;
 public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
-	private CustomerRepository custRepo;
+	private CustomerRepository customerRepository;
 
 	@Override
 	public Iterable<Customer> getAllCustomers() {
 		
-		return custRepo.findAll();
+		return customerRepository.findAll();
 	}
 
 	@Override
 	public Customer getCustomerByID(long custId) {
 
-		return custRepo.findById(custId).get();
+		return customerRepository.findById(custId).get();
 	}
 
 	@Override
 	public Customer addandUpdateCustomer(Customer customer) {
 		
-		return custRepo.save(customer);
+		return customerRepository.save(customer);
 		
 	}
 
 	@Override
 	public void removeCustomerById(long custId) {
-		custRepo.deleteById(custId);
+		customerRepository.deleteById(custId);
 		
 	}
 

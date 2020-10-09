@@ -23,16 +23,16 @@ import com.bah.customer.service.CustomerService;
 public class CustomerAPI {
 	
 	@Autowired
-	private CustomerService custServ;
+	private CustomerService customerService;
 	
 	@GetMapping
 	public Iterable<Customer> getAll(){
-		return custServ.getAllCustomers();
+		return customerService.getAllCustomers();
 	}
 	
 	@GetMapping("/{customerId}")
 	public Customer getCustomerById(@PathVariable("customerId") long id){
-		return custServ.getCustomerByID(id);
+		return customerService.getCustomerByID(id);
 	}
 	
 	@PostMapping
@@ -42,7 +42,7 @@ public class CustomerAPI {
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
-		newCustomer=custServ.addandUpdateCustomer(newCustomer);
+		newCustomer=customerService.addandUpdateCustomer(newCustomer);
 		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
 		ResponseEntity<?> response=ResponseEntity.created(location).build();
 		return response;
@@ -55,7 +55,7 @@ public class CustomerAPI {
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
-		newCustomer=custServ.addandUpdateCustomer(newCustomer);
+		newCustomer=customerService.addandUpdateCustomer(newCustomer);
 		return ResponseEntity.ok().build();
 	}
 }
