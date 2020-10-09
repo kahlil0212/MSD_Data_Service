@@ -1,10 +1,12 @@
 package com.bah.customer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bah.customer.domain.Event;
 import com.bah.customer.persistence.EventRepository;
 
+@Service
 public class EventServiceImpl implements EventService {
 	
 	@Autowired
