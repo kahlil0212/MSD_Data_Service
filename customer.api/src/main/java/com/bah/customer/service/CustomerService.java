@@ -14,6 +14,5 @@ public interface CustomerService {
 	
 	void removeCustomerById(long custId);
 	
-	
 
 }

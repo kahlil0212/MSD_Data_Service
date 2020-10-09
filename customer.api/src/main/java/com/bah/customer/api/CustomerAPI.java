@@ -20,7 +20,7 @@ import com.bah.customer.service.CustomerService;
 
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("/api/customers")
 public class CustomerAPI {
 	
 	@Autowired
@@ -36,7 +36,7 @@ public class CustomerAPI {
 		return customerService.getCustomerByID(id);
 	}
 	
-	@GetMapping("/name/{customerName}")
+	@GetMapping("/byname/{customerName}")
 	public ResponseEntity<?> getCustomerByName(@PathVariable("customerName") String customerName) {
 		Customer customer = customerService.getCustomerByName(customerName);
 		
@@ -71,7 +71,7 @@ public class CustomerAPI {
 		return ResponseEntity.ok().build();
 	}
 	
-	@DeleteMapping("/{customerId}")
+	@DeleteMapping("/id//{customerId}")
 	public ResponseEntity<?> deleteCustomer(@PathVariable("customerId")long customerId){
 		Customer newCustomer = customerService.getCustomerByID(customerId);
 		if (newCustomer == null) {//Reject - we'll assign the customer id
@@ -80,4 +80,5 @@ public class CustomerAPI {
 		customerService.removeCustomerById(customerId);
 		return ResponseEntity.ok().build();
 	}
+	
 }
