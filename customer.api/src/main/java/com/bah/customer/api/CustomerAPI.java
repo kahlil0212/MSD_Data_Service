@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,6 +57,16 @@ public class CustomerAPI {
 			return ResponseEntity.badRequest().build();
 		}
 		newCustomer=customerService.addandUpdateCustomer(newCustomer);
+		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping("/{customerId}")
+	public ResponseEntity<?> deleteCustomer(@PathVariable("customerId")long customerId){
+		Customer newCustomer = customerService.getCustomerByID(customerId);
+		if (newCustomer == null) {//Reject - we'll assign the customer id
+			return ResponseEntity.badRequest().build();
+		}
+		customerService.removeCustomerById(customerId);
 		return ResponseEntity.ok().build();
 	}
 }
