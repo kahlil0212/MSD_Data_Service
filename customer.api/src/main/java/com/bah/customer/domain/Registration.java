@@ -16,29 +16,14 @@ public class Registration {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@ManyToOne
-	private Event event;
+//	@ManyToOne
+//	private Event event;
 	
 	long event_id;
 	
-	public long getEvent_id() {
-		return event_id;
-	}
 
-	public void setEvent_id(long event_id) {
-		this.event_id = event_id;
-	}
-
-	public long getCustomer_id() {
-		return customer_id;
-	}
-
-	public void setCustomer_id(long customer_id) {
-		this.customer_id = customer_id;
-	}
-
-	@ManyToOne
-	private Customer customer;
+//	@ManyToOne
+//	private Customer customer;
 	
 	long customer_id;
 	
@@ -54,20 +39,20 @@ public class Registration {
 		this.id = id;
 	}
 
-	public Event getEvent() {
-		return event;
+	public long getEvent_id() {
+		return event_id;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
+	public void setEvent_id(long event_id) {
+		this.event_id = event_id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public long getCustomer_id() {
+		return customer_id;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomer_id(long customer_id) {
+		this.customer_id = customer_id;
 	}
 
 	public Date getRegistrationDate() {
@@ -92,4 +77,8 @@ public class Registration {
 				+ ", registrationDate=" + registrationDate + ", notes=" + notes + "]";
 	}
 
+
+	
+	
+	
 }

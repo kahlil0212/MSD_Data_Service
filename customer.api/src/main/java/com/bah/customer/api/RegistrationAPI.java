@@ -28,53 +28,62 @@ public class RegistrationAPI {
 
 	@Autowired
 	private RegistrationService registrationService;
-	
+
 	@Autowired
 	private EventService eventService;
-	
+
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@GetMapping
-	public Iterable<Registration> getAll(){
+	public Iterable<Registration> getAll() {
 		return registrationService.getAllRegistrations();
 	}
-	
+
 	@GetMapping("/{registrationId}")
-	public Registration getRegistrationById(@PathVariable("registrationId") long id){
+	public Registration getRegistrationById(@PathVariable("registrationId") long id) {
 		return registrationService.getRegistrationByID(id);
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri){
-		if (newRegistration.getId()!=0 && newRegistration.getCustomer()!= null
-				&& newRegistration.getEvent()!= null
-			|| newRegistration.getNotes()==null
-			|| newRegistration.getRegistrationDate()==null) {//Reject - we'll assign the registration id
+	public ResponseEntity<?> addRegistration(@RequestBody Registration registration, UriComponentsBuilder uri) {
+		System.out.println("*** Registration "+ registration);
+		if (registration.getId() != 0 && registration.getCustomer_id() != 0 && registration.getEvent_id() != 0
+				|| registration.getNotes() == null || registration.getRegistrationDate() == null) {// Reject -
+																											// we'll
+																											// assign
+																											// the
+																											// registration
+																											// id
 			return ResponseEntity.badRequest().build();
 		}
-		newRegistration=registrationService.addandUpdateRegistration(newRegistration);
-		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newRegistration.getId()).toUri();
-		ResponseEntity<?> response=ResponseEntity.created(location).build();
+		Registration newRegistration = registrationService.addandUpdateRegistration(registration);
+		System.out.println("*** New Registration "+ newRegistration);
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(newRegistration.getId()).toUri();
+		ResponseEntity<?> response = ResponseEntity.created(location).build();
 		return response;
 	}
-	
-	@PutMapping("/{registrationId}")
-	public ResponseEntity<?> putRegistration(@RequestBody Registration newRegistration, @PathVariable("registrationId")long registrationId){
-		if (newRegistration.getId()!= registrationId && newRegistration.getCustomer().getId()!=0
-				&& newRegistration.getEvent().getId()!= 0
-			|| newRegistration.getRegistrationDate()==null
-			|| newRegistration.getNotes()==null) {//Reject - we'll assign the registration id
+
+	@PutMapping
+	public ResponseEntity<?> putRegistration(@RequestBody Registration registration) {
+		System.out.println("*** Registration "+ registration);
+		if (registration.getCustomer_id() != 0
+				&& registration.getEvent_id() != 0 || registration.getRegistrationDate() == null
+				|| registration.getNotes() == null) {// Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
 		}
-		newRegistration=registrationService.addandUpdateRegistration(newRegistration);
+		Registration newRegistration = registrationService.addandUpdateRegistration(registration);
+		
+		System.out.println("*** New Registration "+ newRegistration);
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@DeleteMapping("/{registrationId}")
-	public ResponseEntity<?> deleteRegistration(@PathVariable("registrationId")long registrationId){
+	public ResponseEntity<?> deleteRegistration(@PathVariable("registrationId") long registrationId) {
 		Registration newRegistration = registrationService.getRegistrationByID(registrationId);
-		if (newRegistration == null) {//Reject - we'll assign the registration id
+		if (newRegistration == null) {// Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
 		}
 		registrationService.removeRegistrationById(registrationId);
