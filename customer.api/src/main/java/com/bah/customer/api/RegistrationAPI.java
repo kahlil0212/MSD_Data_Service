@@ -2,6 +2,8 @@ package com.bah.customer.api;
 
 import java.net.URI;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +18,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bah.customer.domain.Registration;
+import com.bah.customer.service.CustomerService;
+import com.bah.customer.service.EventService;
 import com.bah.customer.service.RegistrationService;
 
 @RestController
@@ -24,6 +28,12 @@ public class RegistrationAPI {
 
 	@Autowired
 	private RegistrationService registrationService;
+	
+	@Autowired
+	private EventService eventService;
+	
+	@Autowired
+	private CustomerService customerService;
 	
 	@GetMapping
 	public Iterable<Registration> getAll(){
@@ -36,9 +46,9 @@ public class RegistrationAPI {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri){
-		if (newRegistration.getId()!=0 && newRegistration.getCustomer().getId() == 0 
-				&& newRegistration.getEvent().getId() == 0
+	public ResponseEntity<?> addRegistration(@PathParam()String long customerId@RequestBody Registration newRegistration, UriComponentsBuilder uri){
+		if (newRegistration.getId()!=0 && newRegistration.getCustomer()!= null
+				&& newRegistration.getEvent()!= null
 			|| newRegistration.getNotes()==null
 			|| newRegistration.getRegistrationDate()==null) {//Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
