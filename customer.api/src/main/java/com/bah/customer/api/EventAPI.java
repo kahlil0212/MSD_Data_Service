@@ -30,7 +30,7 @@ public class EventAPI {
 		return eventService.getAllEvents();
 	}
 	
-	@GetMapping("/{eventId}")
+	@GetMapping("/id/{eventId}")
 	public ResponseEntity<?> getEventById(@PathVariable("eventId") long eventId){
 		Event event = eventService.getEventByID(eventId);
 		
@@ -41,7 +41,7 @@ public class EventAPI {
 		}
 	}
 	
-	@GetMapping("/{eventTitle}")
+	@GetMapping("/title/{eventTitle}")
 	public ResponseEntity<?> getEventByTitle(@PathVariable("eventTitle") String eventTitle){
 		Event event = eventService.getEventByTitle(eventTitle);
 		
