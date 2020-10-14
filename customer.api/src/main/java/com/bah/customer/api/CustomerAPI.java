@@ -63,8 +63,9 @@ public class CustomerAPI {
 		return response;
 	}
 	
-	@PutMapping
-	public ResponseEntity<?> putCustomer(@RequestBody Customer newCustomer){
+	@PutMapping("{id}")
+	public ResponseEntity<?> putCustomer(@PathVariable long id, 
+			@RequestBody Customer newCustomer){
 		if (newCustomer.getName()==null
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id
 			return ResponseEntity.badRequest().build();
@@ -73,7 +74,7 @@ public class CustomerAPI {
 		return ResponseEntity.ok().build();
 	}
 	
-	@DeleteMapping("/id//{customerId}")
+	@DeleteMapping("/id/{customerId}")
 	public ResponseEntity<?> deleteCustomer(@PathVariable("customerId")long customerId){
 		Customer newCustomer = customerService.getCustomerByID(customerId);
 		if (newCustomer == null) {//Reject - we'll assign the customer id

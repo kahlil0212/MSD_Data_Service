@@ -63,8 +63,9 @@ public class RegistrationAPI {
 		return response;
 	}
 
-	@PutMapping
-	public ResponseEntity<?> putRegistration(@RequestBody Registration registration) {
+	@PutMapping("{id}")
+	public ResponseEntity<?> putRegistration(@PathVariable long id,
+			@RequestBody Registration registration) {
 		System.out.println("*** Put Registration "+ registration);
 		if (registration.getCustomer_id() == 0
 				&& registration.getEvent_id() == 0 || registration.getRegistration_date() == null
@@ -79,7 +80,7 @@ public class RegistrationAPI {
 	}
 
 	@DeleteMapping("/{registrationId}")
-	public ResponseEntity<?> deleteRegistration(@PathVariable("registrationId") long registrationId) {
+	public ResponseEntity<?> deleteRegistration(@PathVariable long registrationId) {
 		Registration newRegistration = registrationService.getRegistrationByID(registrationId);
 		if (newRegistration == null) {// Reject - we'll assign the registration id
 			return ResponseEntity.badRequest().build();
