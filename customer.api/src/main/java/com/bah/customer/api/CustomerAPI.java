@@ -50,6 +50,8 @@ public class CustomerAPI {
 	
 	@PostMapping
 	public ResponseEntity<?> addCustomer(@RequestBody Customer newCustomer, UriComponentsBuilder uri){
+		
+		System.out.println("New customer: " + newCustomer);
 		if (newCustomer.getId()!=0
 			|| newCustomer.getName()==null
 			|| newCustomer.getEmail()==null) {//Reject - we'll assign the customer id

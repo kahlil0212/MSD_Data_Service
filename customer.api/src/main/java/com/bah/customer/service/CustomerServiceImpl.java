@@ -28,6 +28,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public Customer getCustomerByName(String custName) {
 		Iterable<Customer> customerList = this.getAllCustomers();
 		
+		
 		for(Customer customer: customerList) {
 			if(customer.getName().equals(custName))
 				return customer;
