@@ -421,6 +421,37 @@
 				"description": "localhost:8080/registrations/4"
 			},
 			"response": []
+		},
+		{
+			"name": "Name Token POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Mick\",\n\t\"password\":\"mick00\",\n\t\"scopes\":\"com.webage.data.apis\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/account/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"account",
+						"token"
+					]
+				},
+				"description": "localhost:8081/account/token"
+			},
+			"response": []
 		}
 	]
 }
