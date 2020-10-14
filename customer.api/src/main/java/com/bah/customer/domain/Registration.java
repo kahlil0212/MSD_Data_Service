@@ -27,7 +27,7 @@ public class Registration {
 	
 	long customer_id;
 	
-	private Date registrationDate;
+	private Date registration_date;
 	
 	private String notes;
 
@@ -55,12 +55,12 @@ public class Registration {
 		this.customer_id = customer_id;
 	}
 
-	public Date getRegistrationDate() {
-		return registrationDate;
+	public Date getRegistration_date() {
+		return registration_date;
 	}
 
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
+	public void setRegistration_date(Date registration_date) {
+		this.registration_date = registration_date;
 	}
 
 	public String getNotes() {
@@ -74,7 +74,7 @@ public class Registration {
 	@Override
 	public String toString() {
 		return "Registration [id=" + id + ", event_id=" + event_id + ", customer_id=" + customer_id
-				+ ", registrationDate=" + registrationDate + ", notes=" + notes + "]";
+				+ ", registrationDate=" + registration_date + ", notes=" + notes + "]";
 	}
 	
 	
