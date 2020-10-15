@@ -28,6 +28,7 @@ public class CustomerAPI {
 	
 	@GetMapping
 	public Iterable<Customer> getAll(){
+		System.out.println(customerService.getAllCustomers());
 		return customerService.getAllCustomers();
 	}
 	

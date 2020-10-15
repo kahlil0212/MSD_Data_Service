@@ -2,14 +2,17 @@ package com.bah.customer.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "REGISTRATIONS")
 public class Registration {
 	
 	@Id
@@ -19,12 +22,14 @@ public class Registration {
 //	@ManyToOne
 //	private Event event;
 	
+	@Column(name = "EVENT_ID")
 	long event_id;
 	
 
 //	@ManyToOne
 //	private Customer customer;
 	
+	@Column(name = "CUSTOMER_ID")
 	long customer_id;
 	
 	private Date registration_date;

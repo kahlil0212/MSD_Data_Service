@@ -1,11 +1,16 @@
-INSERT INTO CUSTOMER (id, name,email,password) VALUES (1, 'Mick', 'mickknutson@gmail.com', 'mick00');
-INSERT INTO CUSTOMER (id, name,email,password) VALUES (2, 'Bruce', 'brucewayne@gmail.com', 'batman01');
-INSERT INTO CUSTOMER (id, name,email,password) VALUES (3, 'Clark', 'clarkkent@gmail.com', 'superman02');
+insert into CUSTOMERS (CUSTOMER_NAME, PASSWORD, EMAIL) VALUES ('Bruce', 'pass', 'bruce@a.com');
+insert into CUSTOMERS (CUSTOMER_NAME, PASSWORD, EMAIL) VALUES ('Paul', 'pass', 'paul@b.com');
+insert into CUSTOMERS (CUSTOMER_NAME, PASSWORD, EMAIL) VALUES ('Rick', 'pass', 'rick@c.com');
 
-INSERT INTO EVENT (id,code,title,description) VALUES (1, 'CNF001', 'All-Java Conference', 'Lectures and exhibits covering all Java topics');
-INSERT INTO EVENT (id,code,title,description) VALUES (2, 'CNC001', 'Rock Concert', 'full-blown rock concert');
-INSERT INTO EVENT (id,code,title,description) VALUES (3, 'CNC002', 'Hip-Hop Concert', '90s hip-hop concert');
+insert into EVENTS (EVENT_CODE, TITLE, DESCRIPTION ) VALUES ('CNF001', 'All-Java Conference', 'Lectures and exhibits covering all Java topics' );
+insert into EVENTS (EVENT_CODE, TITLE, DESCRIPTION ) VALUES ('WKS002', 'Spring Boot Workshop', 'Hands-on Spring Boot Workshop' );
+insert into EVENTS (EVENT_CODE, TITLE, DESCRIPTION ) VALUES ('TRN003', 'Angular Training Course', 'Five day introductory training in Angular' );
 
-INSERT INTO REGISTRATION (id, event_id,customer_id,registration_date, notes) VALUES (1, 1, 1, '2020-02-02', 'are meals included?');
-INSERT INTO REGISTRATION (id, event_id,customer_id,registration_date, notes) VALUES (2, 3, 3, '2020-01-15', 'is parking available');
-INSERT INTO REGISTRATION (id, event_id,customer_id,registration_date, notes) VALUES (3, 2, 2, '2020-03-01', 'is parking available');
+insert into REGISTRATIONS (EVENT_ID, CUSTOMER_ID, REGISTRATION_DATE, NOTES ) 
+values ( 1, 1, '2019-01-15 00:00:00.0', 'please email me the event details' );
+
+insert into REGISTRATIONS (EVENT_ID, CUSTOMER_ID, REGISTRATION_DATE, NOTES ) 
+values ( 1, 2, '2019-01-17 00:00:00.0', 'looking for info on local hotels' );
+
+insert into REGISTRATIONS (EVENT_ID, CUSTOMER_ID, REGISTRATION_DATE, NOTES ) 
+values ( 1, 3, '2019-01-13 00:00:00.0', 'na' );

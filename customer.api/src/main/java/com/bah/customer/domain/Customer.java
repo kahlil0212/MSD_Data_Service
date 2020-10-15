@@ -8,12 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "CUSTOMERS")
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(name = "CUSTOMER_NAME")
 	private String name;
 	
 	private String email;
