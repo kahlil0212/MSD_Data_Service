@@ -1,0 +1,45 @@
+#Docker Commands
+
+#For customer-api service get to appropriate folder and run terminal
+docker build --tag customer-api:v1.0 .
+
+# use -d for running in daemon
+docker run --rm -p 8080:8080 --name customer-api customer-api:v1.0
+
+#Now go to security-api service get to appropriate folder and run terminal
+docker build --tag security-api:v1.0 .
+
+# use -d for running in daemon
+docker run --rm -p 8081:8081 -e API_HOST="172.18.0.2:8080" --name security-api security-api:v1.0
+
+#Create a new terminal window to connect network
+docker network create msd-network
+
+# check network function
+docker network inspect msd-network
+
+#connect containers to network
+docker network connect msd-network customer-api
+docker network connect msd-network security-api
+
+# check containers are on network w/ appropriate IPs
+docker network inspect msd-network
+
+# check container ports with ->XXXX/tcp
+docker ps -n 2
+
+#Now go to react client service get to appropriate folder and run terminal
+docker build --tag react-client:v1.0 .
+
+# use -d for running in daemon
+docker run --rm -p 3000:80 --name react-client react-client:v1.0
+
+# check container ports in previous terminal with ->XXXX/tcp and react image exists
+docker ps -n 3
+
+#connect react container to network
+docker network connect msd-network react-client
+
+# check network connection
+docker network inspect msd-network
+
