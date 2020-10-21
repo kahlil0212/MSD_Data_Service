@@ -18,10 +18,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.bah.customer.domain.Customer;
 import com.bah.customer.service.CustomerService;
 
+import io.opentracing.Span;
+import io.opentracing.Tracer;
 
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerAPI {
+	
+	@Autowired
+	private Tracer tracer;
 	
 	@Autowired
 	private CustomerService customerService;
@@ -29,7 +34,11 @@ public class CustomerAPI {
 	@GetMapping
 	public Iterable<Customer> getAll(){
 		System.out.println(customerService.getAllCustomers());
-		return customerService.getAllCustomers();
+		Span span = tracer.buildSpan("get customers").start();
+        span.setTag("http.status_code", 201);
+        Iterable<Customer> data = customerService.getAllCustomers();
+        span.finish();
+		return data;
 	}
 	
 	@GetMapping("/id/{customerId}")

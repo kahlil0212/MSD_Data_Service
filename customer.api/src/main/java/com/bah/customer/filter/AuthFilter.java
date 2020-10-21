@@ -18,7 +18,10 @@ import com.bah.customer.util.JWTHelper;
 
 
 
-@Component
+
+
+
+//@Component
 public class AuthFilter implements Filter {
 
 	 JWTHelper jwtUtil = new JWTHelper();
