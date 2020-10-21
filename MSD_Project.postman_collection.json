@@ -6,452 +6,538 @@
 	},
 	"item": [
 		{
-			"name": "Customers All",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/customers",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers"
-					]
+			"name": "localhost Requests",
+			"item": [
+				{
+					"name": "Customers All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "localhost:8080/customers"
+					},
+					"response": []
 				},
-				"description": "localhost:8080/customers"
-			},
-			"response": []
+				{
+					"name": "Customer By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customers/id/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"id",
+								"3"
+							]
+						},
+						"description": "localhost:8080/customers/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Customer By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customers/byname/Clark",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"byname",
+								"Clark"
+							]
+						},
+						"description": "localhost:8080/api/customers/byname/Clark"
+					},
+					"response": []
+				},
+				{
+					"name": "Customer POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Peter\",\n    \"email\": \"peterparker@gmail.com\",\n    \"password\": \"spiderman04\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "localhost:8080/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Customer PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 2,\n        \"name\": \"Diana\",\n        \"email\": \"dianaprince@gmail.com\",\n        \"password\": \"wonderwoman05\"\n    }"
+						},
+						"url": {
+							"raw": "localhost:8080/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						},
+						"description": "localhost:8080/customers/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Customer DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customers/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"3"
+							]
+						},
+						"description": "localhost:8080/customers/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Events All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"events"
+							]
+						},
+						"description": "localhost:8080/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Event by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/events/id/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"events",
+								"id",
+								"1"
+							]
+						},
+						"description": "localhost:8080/events/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Event By Title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/events/title/Rock Concert",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"events",
+								"title",
+								"Rock Concert"
+							]
+						},
+						"description": "localhost:8080/api/events/title/Rock%20Concert"
+					},
+					"response": []
+				},
+				{
+					"name": "Event POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"CNF002\",\n    \"title\": \"All-C++ Conference\",\n    \"description\": \"Lectures and exhibits covering all C++ topics\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"events"
+							]
+						},
+						"description": "localhost:8080/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Event PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 4,\n        \"code\": \"CNF002\",\n        \"title\": \"All-Ruby Conference\",\n        \"description\": \"Lectures and exhibits covering all Ruby topics\"\n    }"
+						},
+						"url": {
+							"raw": "localhost:8080/api/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"events"
+							]
+						},
+						"description": "localhost:8080/events/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Event DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/events/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"events",
+								"4"
+							]
+						},
+						"description": "localhost:8080/events/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Registrations All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/registrations",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registrations"
+							]
+						},
+						"description": "localhost:8080/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Registration By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/registrations/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registrations",
+								"2"
+							]
+						},
+						"description": "localhost:8080/registrations/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Registration POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_id\": 2,\n    \"customer_id\": 1,\n    \"registrationDate\": \"2020-01-15\",\n    \"notes\": \"is parking available\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/registrations",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registrations"
+							]
+						},
+						"description": "localhost:8080/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Registration PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 4,\n        \"event_id\": 1,\n        \"customer_id\": 1,\n        \"registrationDate\": \"2020-01-21\",\n        \"notes\": \"is parking available\"\n    }"
+						},
+						"url": {
+							"raw": "localhost:8080/api/registrations",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registrations"
+							]
+						},
+						"description": "localhost:8080/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Registration DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/registrations/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registrations",
+								"4"
+							]
+						},
+						"description": "localhost:8080/registrations/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Name Token POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Bruce\",\n\t\"password\":\"pass\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8081/account/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"account",
+								"token"
+							]
+						},
+						"description": "localhost:8081/account/token\npreviously needed in JSON:\n\t\"scopes\":\"com.webage.data.apis\""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "Customer By Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/customers/id/3",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers",
-						"id",
-						"3"
-					]
+			"name": "docker container requests",
+			"item": [
+				{
+					"name": "account Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcGl1c2VyIiwiaXNzIjoibWVAbWUuY29tIiwic2NvcGVzIjoiY29tLndlYmFnZS5kYXRhLmFwaXMiLCJleHAiOjE2MDMxNjg3NDl9.-6sjO2P5MEKezAhFq0-jD-l70iuoLy_5x7BwGhJLiBs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Bruce\",\n\t\"password\":\"pass\"\n}"
+						},
+						"url": {
+							"raw": "172.18.0.3:8081/account/token",
+							"host": [
+								"172",
+								"18",
+								"0",
+								"3"
+							],
+							"port": "8081",
+							"path": [
+								"account",
+								"token"
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "localhost:8080/customers/2"
-			},
-			"response": []
-		},
-		{
-			"name": "Customer By Name",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/customers/byname/Clark",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers",
-						"byname",
-						"Clark"
-					]
-				},
-				"description": "localhost:8080/api/customers/byname/Clark"
-			},
-			"response": []
-		},
-		{
-			"name": "Customer POST",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Peter\",\n    \"email\": \"peterparker@gmail.com\",\n    \"password\": \"spiderman04\"\n}"
-				},
-				"url": {
-					"raw": "localhost:8080/api/customers",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers"
-					]
-				},
-				"description": "localhost:8080/customers"
-			},
-			"response": []
-		},
-		{
-			"name": "Customer PUT",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\n        \"id\": 2,\n        \"name\": \"Diana\",\n        \"email\": \"dianaprince@gmail.com\",\n        \"password\": \"wonderwoman05\"\n    }"
-				},
-				"url": {
-					"raw": "localhost:8080/customers",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"customers"
-					]
-				},
-				"description": "localhost:8080/customers/2"
-			},
-			"response": []
-		},
-		{
-			"name": "Customer DELETE",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/customers/3",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers",
-						"3"
-					]
-				},
-				"description": "localhost:8080/customers/3"
-			},
-			"response": []
-		},
-		{
-			"name": "Events All",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/events",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"events"
-					]
-				},
-				"description": "localhost:8080/events"
-			},
-			"response": []
-		},
-		{
-			"name": "Event by Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/events/id/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"events",
-						"id",
-						"1"
-					]
-				},
-				"description": "localhost:8080/events/1"
-			},
-			"response": []
-		},
-		{
-			"name": "Event By Title",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/events/title/Rock Concert",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"events",
-						"title",
-						"Rock Concert"
-					]
-				},
-				"description": "localhost:8080/api/events/title/Rock%20Concert"
-			},
-			"response": []
-		},
-		{
-			"name": "Event POST",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"code\": \"CNF002\",\n    \"title\": \"All-C++ Conference\",\n    \"description\": \"Lectures and exhibits covering all C++ topics\"\n}"
-				},
-				"url": {
-					"raw": "localhost:8080/api/events",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"events"
-					]
-				},
-				"description": "localhost:8080/events"
-			},
-			"response": []
-		},
-		{
-			"name": "Event PUT",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\n        \"id\": 4,\n        \"code\": \"CNF002\",\n        \"title\": \"All-Ruby Conference\",\n        \"description\": \"Lectures and exhibits covering all Ruby topics\"\n    }"
-				},
-				"url": {
-					"raw": "localhost:8080/api/events",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"events"
-					]
-				},
-				"description": "localhost:8080/events/4"
-			},
-			"response": []
-		},
-		{
-			"name": "Event DELETE",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/events/4",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"events",
-						"4"
-					]
-				},
-				"description": "localhost:8080/events/4"
-			},
-			"response": []
-		},
-		{
-			"name": "Registrations All",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/registrations",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"registrations"
-					]
-				},
-				"description": "localhost:8080/registrations"
-			},
-			"response": []
-		},
-		{
-			"name": "Registration By Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/registrations/2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"registrations",
-						"2"
-					]
-				},
-				"description": "localhost:8080/registrations/2"
-			},
-			"response": []
-		},
-		{
-			"name": "Registration POST",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"event_id\": 2,\n    \"customer_id\": 1,\n    \"registrationDate\": \"2020-01-15\",\n    \"notes\": \"is parking available\"\n}"
-				},
-				"url": {
-					"raw": "localhost:8080/api/registrations",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"registrations"
-					]
-				},
-				"description": "localhost:8080/registrations"
-			},
-			"response": []
-		},
-		{
-			"name": "Registration PUT",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\n        \"id\": 4,\n        \"event_id\": 1,\n        \"customer_id\": 1,\n        \"registrationDate\": \"2020-01-21\",\n        \"notes\": \"is parking available\"\n    }"
-				},
-				"url": {
-					"raw": "localhost:8080/api/registrations",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"registrations"
-					]
-				},
-				"description": "localhost:8080/registrations"
-			},
-			"response": []
-		},
-		{
-			"name": "Registration DELETE",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/registrations/4",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"registrations",
-						"4"
-					]
-				},
-				"description": "localhost:8080/registrations/4"
-			},
-			"response": []
-		},
-		{
-			"name": "Name Token POST",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Mick\",\n\t\"password\":\"mick00\",\n\t\"scopes\":\"com.webage.data.apis\"\n}"
-				},
-				"url": {
-					"raw": "localhost:8081/account/token",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"account",
-						"token"
-					]
-				},
-				"description": "localhost:8081/account/token"
-			},
-			"response": []
+				{
+					"name": "api Customers All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcGl1c2VyIiwiaXNzIjoibWVAbWUuY29tIiwic2NvcGVzIjoiY29tLndlYmFnZS5kYXRhLmFwaXMiLCJleHAiOjE2MDMyMTc3NTR9.x9pXhm1BNmyk3tFM5faQM4uJuXIXF_pJIn7Fkz34XZU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "172.18.0.2:8080/api/customers",
+							"host": [
+								"172",
+								"18",
+								"0",
+								"2"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "172.18.0.2:8080/api/customers"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
