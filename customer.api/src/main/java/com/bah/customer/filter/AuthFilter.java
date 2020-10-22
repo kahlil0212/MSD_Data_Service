@@ -21,7 +21,7 @@ import com.bah.customer.util.JWTHelper;
 
 
 
-//@Component
+@Component
 public class AuthFilter implements Filter {
 
 	 JWTHelper jwtUtil = new JWTHelper();
@@ -43,6 +43,17 @@ public class AuthFilter implements Filter {
 			chain.doFilter(request, response);
 			return;
 		} else {*/
+		// auth checking will not apply to these cases
+	   // token endpoint
+	   // user register endpoint
+		// healthcheck endpoint on '/api/'
+			if(!uri.startsWith("/api/events") 
+			  && !uri.startsWith("/api/registrations")
+			  && !uri.equals("/api/customers")
+			   ) {
+				chain.doFilter(request, response);
+				return;			
+				 } else{
 			// check JWT token
 			String authheader = req.getHeader("authorization");
 			if (authheader != null && authheader.length() > 7 && authheader.startsWith("Bearer")) {
@@ -56,7 +67,7 @@ public class AuthFilter implements Filter {
 					}
 				}
 			}
-
+				 }
 		// reject request and return error instead of data
 		res.sendError(HttpServletResponse.SC_FORBIDDEN, "failed authentication");
 	}
