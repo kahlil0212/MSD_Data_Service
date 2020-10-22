@@ -1,6 +1,6 @@
 node {
     stage ("Checkout customer-api"){
-        git url: '/home/osboxes/git/MSD_Data_Service/customer.api'
+        git url: '/home/osboxes/git/MSD_Data_Service'
     }
     
     stage ("Gradle Build - customer-api") {
