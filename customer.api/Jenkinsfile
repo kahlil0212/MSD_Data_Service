@@ -1,0 +1,47 @@
+node {
+    stage ("Checkout customer-api"){
+        git url: '/home/osboxes/git/MSD_Data_Service/customer.api'
+    }
+    
+    stage ("Gradle Build - customer-api") {
+        sh 'gradle clean build'
+    }
+    
+    stage ("Gradle Bootjar-Package - customer-api") {
+        sh 'gradle bootjar'
+    }
+    
+    stage ("Containerize the app-docker build - customer-api") {
+        sh 'docker build -t customer-api:v1.1 .'
+    }
+    
+    stage ("Inspect the docker image - customer-api"){
+        sh "docker images customer-api:v1.1"
+        sh "docker inspect customer-api:v1.1"
+    }
+    
+    stage ("Run Docker container instance - customer-api"){
+        sh "docker run -d --name customer-api -p 8090:8090 customer-api:v1.1"
+     }
+    
+    stage('User Acceptance Test - customer-api') {
+	
+	  def response= input message: 'Is this build good to go?',
+	   parameters: [choice(choices: 'Yes\nNo', 
+	   description: '', name: 'Pass')]
+	
+	  if(response=="Yes") {
+	    stage('Deploy to Kubernetes cluster - customer-api') {
+	      sh "kubectl create deployment customer-api --image=customer-api:v1.1"
+	      sh "kubectl expose deployment customer-api --type=LoadBalancer --port=8090"
+	    }
+	  }
+    }
+
+    stage("Production Deployment View"){
+        sh "kubectl get deployments"
+        sh "kubectl get pods"
+        sh "kubectl get services"
+    }
+  
+}
